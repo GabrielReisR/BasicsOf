@@ -17,32 +17,32 @@ library(TeachingSampling)
 
   
 # Sampling em um data.frame
-  # Utilizando o data.frame iris, vari·vel Species
+  # Utilizando o data.frame iris, vari√°vel Species
   sample_iris <- strata(iris, "Species", 
                       size = c(25, 25, 25), 
-                      method = "srswor")      # 25 casos por espÈcie
+                      method = "srswor")      # 25 casos por esp√©cie
 
   sample_iris
   
   
-  # Selecionando dados de forma sistem·tica
+  # Selecionando dados de forma sistem√°tica
   dados_aleatorios2 <- S.SY(100, 2)           # Escolher aleatoriamente de 1:100
-                                              # e depois avanÁar de 2 em 2
+                                              # e depois avan√ßar de 2 em 2
   
   dados_aleatorios15 <- S.SY(100, 15)         # Escolher aleatoriamente de 1:100
-                                              # e depois avanÁar de 15 em 15
+                                              # e depois avan√ßar de 15 em 15
   
-  iris_2  <- iris[dados_aleatorios2,  ]       # Dados aleatÛrios de 2 em 2
-  iris_15 <- iris[dados_aleatorios15, ]       # Dados aleatÛrios de 15 em 15
+  iris_2  <- iris[dados_aleatorios2,  ]       # Dados aleat√≥rios de 2 em 2
+  iris_15 <- iris[dados_aleatorios15, ]       # Dados aleat√≥rios de 15 em 15
   
   
 # Medidas de centralidade
   salario_jogadores <- c(40000, 18000, 12000, 250000,
                          30000, 140000, 300000, 40000, 800000)
-  mean(salario_jogadores) # mÈdia
-  sd(salario_jogadores) # desvio-padr„o
-  var(salario_jogadores) #vari‚ncia
+  mean(salario_jogadores) # m√©dia
+  sd(salario_jogadores) # desvio-padr√£o
+  var(salario_jogadores) #vari√¢ncia
   median(salario_jogadores) # mediana - valor no 'meio' da amostra
   quantile(salario_jogadores) # quartis
-  summary(salario_jogadores) # quartis, mediana e mÈdia
+  summary(salario_jogadores) # quartis, mediana e m√©dia
   
