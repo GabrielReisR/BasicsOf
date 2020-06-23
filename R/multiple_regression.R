@@ -121,4 +121,5 @@ contrasts(glastonburyFestival$music) <- cbind(music_Crusty, music_Indie, music_M
 glastonburyModel <- lm(change ~ music, data = glastonburyFestival)
 summary(glastonburyModel)
 
+#' It looks quite better now!
 ####################################################
