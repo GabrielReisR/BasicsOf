@@ -1,0 +1,65 @@
+---
+title: "Simple regression"
+author: "Gabriel R. R."
+date: "6/22/2020"
+output: html_document
+---
+## Disclaimer
+------------------------------------------------------------
+Data is derived from the book
+[Discovering Statistics Using R](https://www.amazon.com.br/gp/product/1446200469/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1446200469&linkCode=as2&tag=reisrgabriel-20&linkId=9d95df74e31356334db328743ef8aec5) by Andy Field Jeremy Miles & Zöe Field (2012).
+This is a tutorial to remember key concepts and to store code come in handy in the future.
+
+
+```{r}
+# Reading packages
+library(car)
+library(ggplot2)
+library(QuantPsyc)
+```
+
+
+## Problem
+------------------------------------------------------------
+A record label is trying to sell more albums.
+They've been investing money on advertising *hoping* to sell make their sales
+number go up. Unfortunately, they haven't been having much success.
+To get a better grip of their business, they hire me to analyze some of the
+results they've been getting. They provide me this *unusely clean* data:
+
+```{r}
+album <- read.csv("https://raw.githubusercontent.com/GabrielReisR/BasicsOf/master/Data%20Files/Album%20Sales%201.csv",
+                   sep = ",")
+head(album, n = 5)
+tail(album, n = 5)
+```
+
+There are 200 rows of data in which adverts equals to how much they've spent on
+advertising, while sales represent the number of sales made for that particular
+albums. *This is transformed, meaning that the value of 1 in sales equals to 1000.*
+
+### Is there a relationship?
+------------------------------------------------------------
+Let's look at both of these variables together to see if they've been spending
+their money right.
+
+
+```{r}
+albumPlot <- ggplot(album, aes(x = adverts, y = sales)) + 
+  labs(x = "Money spent on advertising (on $)",
+        y = "Sales (in thousands)") +
+  geom_point() + 
+  geom_smooth(method = "lm", colour = "#06A9CF", se = F, size = 1.3) + 
+  theme_minimal()
+
+
+albumPlot
+```
+Now this is a fairly interesting but expected relationship. There seems to be a 
+positive relationship between the amount of money spent on advertising and sales 
+made by the record label. 
+However, when we look at it, we see that if nothing is spent on advertising (X = 0),
+the amount of sales made seems to be around 130-150 thousands of sales.
+*Should they even be spending money on advertising?
+
+### 
