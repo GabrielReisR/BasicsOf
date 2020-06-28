@@ -1,4 +1,14 @@
-# CORRELATION #
+################### CORRELATION ####################
+
+#' Data are derived from the book
+#' 'Discovering Statistics Using R'
+#' by Andy Field Jeremy Miles & Zöe Field (2012)
+
+#' This is a tutorial to remember key concepts and 
+#' to store code that I could use in the future
+
+####################################################
+
 
 # Reading packages
 library(boot)
@@ -27,9 +37,9 @@ liarData <- read.csv("https://raw.githubusercontent.com/GabrielReisR/BasicsOf/ma
                      sep = ",")
 head(liarData)
 cor.test(liarData$Creativity, liarData$Position, method = "kendall")
-#cria��o da fun��o#
+#criação da função#
 bootTau<-function(liarData, i)cor(liarData$Creativity[i], liarData$Position[i], use = "complete.obs", method = "kendall")
-#execu��o do bootstrap#
+#execução do bootstrap#
 boot_kendall<-boot(liarData, bootTau, 2000)
 boot_kendall
 boot.ci(boot_kendall)
@@ -42,9 +52,9 @@ boot.ci(bootExamP)
 catData <- read.csv("https://raw.githubusercontent.com/GabrielReisR/BasicsOf/master/Data%20Files/pbcorr.csv", 
                     sep = ",")
 head(catData)
-#Point-biserial - correla��o de pearson comum com a vari�vel categ�rica numerada "0" e "1"#
+#Point-biserial - correlação de pearson comum com a variável categórica numerada "0" e "1"#
 cor.test(catData$time, catData$recode, method = "pearson")
-#Biserial - polyserial correlation, primeiro deve vir a vari�vel cont�nua, depois a categ�rica#
+#Biserial - polyserial correlation, primeiro deve vir a variável contínua, depois a categórica#
 catFrequencies<-table(catData$gender)
 catFrequencies
 prop.table(catFrequencies)
@@ -114,4 +124,4 @@ grades
 cor.test(grades$stats, grades$gcse, method = "kendall")
   
   
-
+####################################################
