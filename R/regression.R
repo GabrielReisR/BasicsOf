@@ -113,7 +113,3 @@ summary(albumRegressionModel1)
 #' the number of sales. Another variables seems to be at play.
 #' This brings us to multiple regression.
 ####################################################
-
-
-
-
